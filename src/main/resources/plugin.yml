@@ -1,0 +1,12 @@
+name: MGManhunt
+version: ${project.version}
+main: mannug.manhunt.Manhunt
+api-version: 1.16
+authors: [ MannuG ]
+description: ManHunt Plugin By MannuG
+commands:
+  manhunt:
+    description: opens a Gui to Select What You Want To Be!
+    usage: /manhunt
+
+
