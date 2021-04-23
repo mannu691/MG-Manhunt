@@ -51,7 +51,7 @@ public class manhuntCommand implements CommandExecutor {
                         try {
                             manhuntManager.setGrease(Integer.parseInt(args[1]));
                         } catch (Exception e) {
-                            manhuntManager.sendError(sender, args[1] + " is Not a Valid integer , Give a valid integer for Grease Period!");
+                            manhuntManager.sendError(sender, args[1] + " is Not a Valid integer , Give a valid integer for Grace Period!");
                             return true;
                         }
                     }
@@ -78,7 +78,7 @@ public class manhuntCommand implements CommandExecutor {
 
                         task = Bukkit.getScheduler().runTaskTimer(manhuntManager.getManhunt(), () -> {
                             if (manhuntManager.getGrease() > 0) {
-                                Bukkit.broadcastMessage(manhuntManager.getPrefix() + "Grease Period will end in " + manhuntManager.getGrease());
+                                Bukkit.broadcastMessage(manhuntManager.getPrefix() + "Grace Period will end in " + manhuntManager.getGrease());
                                 manhuntManager.setGrease(manhuntManager.getGrease() - 5);
                             } else {
                                 for (UUID uuid : manhuntManager.getHunters()) {
