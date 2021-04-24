@@ -47,6 +47,7 @@ public class manhuntGui implements Gui {
     @Override
     public Gui handleClick(Player player, ItemStack itemStack, InventoryView inventoryView) {
         if(itemStack.getType().equals(Material.GREEN_STAINED_GLASS_PANE)) return null;
+        if(!inventoryView.getTopInventory().contains(itemStack)) return null;
         if(itemStack.getType().equals(Material.ENDER_EYE)){
             if(manhuntManager.getSpeedrunners().contains(player.getUniqueId())){
                 Bukkit.broadcastMessage(manhuntManager.getPrefix()+player.getDisplayName()+" is Now a Speedrunner!");

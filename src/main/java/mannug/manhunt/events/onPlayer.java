@@ -4,6 +4,7 @@ import mannug.manhunt.Gui.Gui;
 import mannug.manhunt.Gui.impl.PlayerSelector;
 import mannug.manhunt.ManhuntManager;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -15,6 +16,9 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.*;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
+import org.bukkit.inventory.ItemStack;
+
+import java.util.List;
 import java.util.UUID;
 
 public class onPlayer implements Listener {
@@ -154,6 +158,7 @@ public class onPlayer implements Listener {
             if (manhuntManager.getHunters().contains(uuid)) {
                 manhuntManager.addDeath(1);
                 player.sendMessage(ChatColor.BLUE+e.getEntity().getPlayer().getDisplayName()+ChatColor.GOLD+" Died!");
+                e.getDrops().removeIf(itemStack -> itemStack.getItemMeta().getDisplayName().equalsIgnoreCase(ChatColor.GOLD + "Track Speedrunner") && itemStack.getType().equals(Material.COMPASS));
             }
 
         }

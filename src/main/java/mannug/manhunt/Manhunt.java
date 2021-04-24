@@ -11,6 +11,10 @@ public final class Manhunt extends JavaPlugin {
     private Configuration config;
     @Override
     public void onEnable() {
+//todo        loot table??
+//todo        selector gui
+//todo        nether compass
+//todo        time fix
         this.manhuntManager = new ManhuntManager(this);
         getServer().getPluginManager().registerEvents(new onPlayer(manhuntManager),this);
         getCommand("manhunt").setTabCompleter(new manhuntTab());
