@@ -56,8 +56,9 @@ public class onPlayer implements Listener {
                         player.setCompassTarget(manhuntManager.getCompassRecord().get(e.getPlayer()).getLocation());
                         player.sendMessage(ChatColor.GOLD + "Compass is Poiting to " + manhuntManager.getCompassRecord().get(player).getDisplayName());
 
-                    } else if (e.getPlayer().getWorld().getEnvironment().equals(World.Environment.NETHER)) {
-                        if (manhuntManager.getConfig().getBoolean("compass-work-in-nether")) {
+                    }
+                    if (e.getPlayer().getWorld().getEnvironment().equals(World.Environment.NETHER)) {
+                        if (!manhuntManager.getConfig().getBoolean("compass-work-in-nether")) {
                             manhuntManager.sendError(player, "Compass Doesn't work in Nether!");
                             return;
                         }
@@ -68,8 +69,9 @@ public class onPlayer implements Listener {
                         player.setCompassTarget(manhuntManager.getCompassRecord().get(e.getPlayer()).getLocation());
                         player.sendMessage(ChatColor.GOLD + "Compass is Poiting to " + manhuntManager.getCompassRecord().get(player).getDisplayName());
 
-                    } else if (e.getPlayer().getWorld().getEnvironment().equals(World.Environment.THE_END)) {
-                        if (manhuntManager.getConfig().getBoolean("compass-work-in-end")) {
+                    }
+                    if (e.getPlayer().getWorld().getEnvironment().equals(World.Environment.THE_END)) {
+                        if (!manhuntManager.getConfig().getBoolean("compass-work-in-end")) {
                             manhuntManager.sendError(player, "Compass Doesn't work in End!");
                             return;
                         }

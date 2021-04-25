@@ -206,7 +206,7 @@ public class ManhuntManager {
         long difference_In_Time = ended.getTime() - started.getTime();
         long s = (difference_In_Time / 1000) % 60;
         long m = (difference_In_Time / (1000 * 60)) % 60;
-        long h = (difference_In_Time / (1000 * 60 * 6)) % 24;
+        long h = (difference_In_Time / (1000 * 60 * 60))% 24;
         return ""+h+ChatColor.BLUE+":"+ChatColor.GOLD+m+ChatColor.BLUE+":"+ChatColor.GOLD+s;
     }
 

@@ -38,6 +38,8 @@ public class PlayerSelector implements Gui {
     @Override
     public Gui handleClick(Player player, ItemStack itemStack, InventoryView inventoryView) {
         if(!inventoryView.getTopInventory().contains(itemStack)) return null;
+        if(!itemStack.getType().equals(Material.PLAYER_HEAD)) return null;
+        if(!Objects.requireNonNull(Bukkit.getPlayer(itemStack.getItemMeta().getDisplayName())).isOnline()) return null;
         manhuntManager.getCompassRecord().put(player,Bukkit.getPlayer(itemStack.getItemMeta().getDisplayName()));
         player.sendMessage(manhuntManager.getPrefix()+"Compass is Now Pointing at "+itemStack.getItemMeta().getDisplayName());
         return null;
